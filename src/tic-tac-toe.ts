@@ -9,10 +9,10 @@ export class TicTacToe {
 
   constructor() {
     this.board = [
-      ["X", "X", "X", "O"],
-      ["X", "X", "", ""],
+      ["", "X", "X", "X"],
       ["X", "", "X", ""],
-      ["O", "", "", "X"],
+      ["X", "X", "", ""],
+      ["X", "", "", ""],
     ];
 
     this.currentPlayer = "X";
@@ -91,9 +91,9 @@ export class TicTacToe {
 
     const secondLine =
       this.board[0][3] === player &&
-      this.board[0][3] === player &&
-      this.board[0][3] === player &&
-      this.board[0][3] === player; // line: /
+      this.board[1][2] === player &&
+      this.board[2][1] === player &&
+      this.board[3][0] === player; // line: /
     if (firstLine || secondLine) {
       console.log("matched by diagonal");
       return true;
