@@ -21,6 +21,17 @@ export class TicTacToe {
     console.log("X is the winner", isWinner);
   }
 
+  anyMovesLeft() {
+    for (let col = 0; col < 4; col++) {
+      for (let row = 0; row < 4; row++) {
+        if (this.board[row][col] === "") {
+          return true;
+        }
+      }
+    }
+    return false;
+  }
+
   checkWinner(player: Player) {
     if (
       this.check4Corner(player) ||
@@ -90,10 +101,10 @@ export class TicTacToe {
       this.board[3][3] === player; // line: \
 
     const secondLine =
-      this.board[0][3] === player &&
-      this.board[1][2] === player &&
+      this.board[3][0] === player &&
       this.board[2][1] === player &&
-      this.board[3][0] === player; // line: /
+      this.board[1][2] === player &&
+      this.board[0][3] === player; // line: /
     if (firstLine || secondLine) {
       console.log("matched by diagonal");
       return true;
